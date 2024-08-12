@@ -1,3 +1,6 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
+import axios from 'axios';
+
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import Stack from '@mui/material/Stack';
@@ -13,16 +16,64 @@ import { bgGradient } from 'src/theme/css';
 
 import Logo from 'src/components/logo';
 
+
 // ----------------------------------------------------------------------
 
 export default function LoginView() {
   const theme = useTheme();
 
   const router = useRouter();
+  
 
-  const handleClick = () => {
-    router.push('/dashboard');
+
+
+
+//   [6:09 PM] Hien Nguyen Thai
+// {
+//     "userId": 1,
+//     "username": "hiennt273@fpt.com",
+//     "role": "admin",
+//     "companyId": 1,
+//     "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjoxLCJpYXQiOjE3MjM0NjA4MjgsImV4cCI6MjMyODI2MDgyOCwianRpIjoiMSJ9.PH4M9aNoTKlT3v8C6jIJTJrd6yZWSimdttlMbZcPUjE"
+// }
+ 
+
+
+  const handleClick = async () => {
+
+    try {
+      const response = await axios.post('https://jsonplaceholder.typicode.com/users');
+
+      // longga 
+
+      localStorage.setItem('accessToken', response.data.accessToken)
+
+
+    } catch (error) {
+      console.log(error);
+    }
+
+    // router.push('/dashboard');
   };
+
+  
+  const clickV2 = async () => {
+    const getToken = localStorage.getItem('accessToken')
+    const payload = 
+      {
+        firstName: 'Fred',
+        lastName: 'Flintstone',
+        orders: [1, 2, 3],
+        photo: document.querySelector('#fileInput').files
+      }
+    const response = await axios.post('/user', payload , {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${getToken}`
+      }
+    })
+    console.log('response', response)
+  }
 
   const renderForm = (
     <>
