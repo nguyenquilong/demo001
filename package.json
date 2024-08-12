@@ -30,6 +30,8 @@
     "@iconify/react": "^4.1.1",
     "@mui/lab": "^5.0.0-alpha.147",
     "@mui/material": "^5.14.12",
+    "@mui/x-date-pickers": "^7.12.1",
+    "@mui/x-date-pickers-pro": "^7.12.1",
     "apexcharts": "^3.43.0",
     "axios": "^1.7.3",
     "date-fns": "^2.30.0",

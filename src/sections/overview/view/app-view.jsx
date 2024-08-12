@@ -2,7 +2,11 @@ import React, { useState } from 'react';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
-import { Container, Typography, Modal, TextField, Button } from '@mui/material';
+import { Container, Typography, Modal, TextField, Button, Select, MenuItem, FormControl, InputLabel, RadioGroup, FormControlLabel, Radio } from '@mui/material';
+import { DateRangePicker } from '@mui/x-date-pickers-pro/DateRangePicker';
+import { LocalizationProvider } from '@mui/x-date-pickers-pro/LocalizationProvider';
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+
 
 export default function AppView() {
   const [events, setEvents] = useState([
@@ -20,6 +24,9 @@ export default function AppView() {
   const [newEventTitle, setNewEventTitle] = useState('');
   const [newEventDateTime, setNewEventDateTime] = useState('');
   const [selectedEvent, setSelectedEvent] = useState(null);
+  const [selectedResource, setSelectedResource] = useState('');
+  const [dateOption, setDateOption] = useState('today'); // 'today', 'recurring', 'dateRange'
+  const [dateRange, setDateRange] = useState([null, null]);
 
   const handleDateClick = (info) => {
     const clickedDate = new Date(info.dateStr);
@@ -28,40 +35,42 @@ export default function AppView() {
     if (clickedDate < today.setHours(0, 0, 0, 0)) {
       return;
     }
-    setNewEventDateTime(info.dateStr + 'T00:00'); // Default time at midnight
+    setNewEventDateTime(info.dateStr + 'T00:00');
     setIsAddEventOpen(true);
   };
 
   const handleAddEvent = () => {
     const newEvent = {
-      title: newEventTitle,
-      start: newEventDateTime,
+      title: `${newEventTitle} (${selectedResource})`,
+      start: dateOption === 'dateRange' && dateRange[0] && dateRange[1] ? dateRange[0].toISOString() : newEventDateTime,
+      end: dateOption === 'dateRange' && dateRange[0] && dateRange[1] ? dateRange[1].toISOString() : null,
+      isTime: dateOption // 'today', 'recurring', 'dateRange'
     };
-
     setEvents([...events, newEvent]);
-
-    console.log('events', events);
-    console.log('newEvent', newEvent);
-
     setIsAddEventOpen(false);
     setNewEventTitle('');
     setNewEventDateTime('');
+    setSelectedResource('');
+    setDateOption('today');
+    setDateRange([null, null]);
   };
 
   const handleEventClick = (info) => {
     setSelectedEvent(info.event);
+    debugger
     setIsEventDetailsOpen(true);
   };
 
   const handleDeleteEvent = () => {
     if (selectedEvent) {
-      selectedEvent.remove(); // Xóa sự kiện đã chọn
-      setIsEventDetailsOpen(false); // Đóng modal sau khi xóa
-      setSelectedEvent(null); // Reset state selectedEvent
+      selectedEvent.remove(); 
+      setIsEventDetailsOpen(false); 
+      setSelectedEvent(null); 
     }
   };
 
   return (
+    <LocalizationProvider dateAdapter={AdapterDateFns}>
     <Container maxWidth="xl">
       <Typography variant="h4" sx={{ mb: 5 }}>
         Hi, Welcome back 👋
@@ -112,20 +121,56 @@ export default function AppView() {
               fullWidth
               margin="normal"
             />
-            <TextField
-              label="Date & Time"
-              type="datetime-local"
-              value={newEventDateTime}
-              onChange={(e) => setNewEventDateTime(e.target.value)}
-              fullWidth
-              margin="normal"
-              InputLabelProps={{
-                shrink: true,
-              }}
-              inputProps={{
-                min: new Date().toISOString().slice(0, 16), // Định dạng YYYY-MM-DDTHH:mm
-              }}
-            />
+            <FormControl fullWidth margin="normal">
+              <InputLabel>Resource</InputLabel>
+              <Select
+                value={selectedResource}
+                onChange={(e) => setSelectedResource(e.target.value)}
+              >
+                <MenuItem value="Phòng họp">Phòng họp</MenuItem>
+                <MenuItem value="Máy tính">Máy tính</MenuItem>
+                <MenuItem value="Máy chiếu">Máy chiếu</MenuItem>
+              </Select>
+            </FormControl>
+            <FormControl component="fieldset" margin="normal">
+              <RadioGroup
+                value={dateOption}
+                onChange={(e) => setDateOption(e.target.value)}
+              >
+                <FormControlLabel value="today" control={<Radio />} label="Hôm nay" />
+                <FormControlLabel value="recurring" control={<Radio />} label="Chọn lặp lại" />
+                <FormControlLabel value="dateRange" control={<Radio />} label="Chọn thời gian dài" />
+              </RadioGroup>
+            </FormControl>
+            {dateOption === 'dateRange' ? (
+              <DateRangePicker
+                startText="Start"
+                endText="End"
+                value={dateRange}
+                onChange={(newValue) => setDateRange(newValue)}
+                renderInput={(startProps, endProps) => (
+                  <>
+                    <TextField {...startProps} fullWidth margin="normal" />
+                    <TextField {...endProps} fullWidth margin="normal" />
+                  </>
+                )}
+              />
+            ) : (
+              <TextField
+                label="Date & Time"
+                type="datetime-local"
+                value={newEventDateTime}
+                onChange={(e) => setNewEventDateTime(e.target.value)}
+                fullWidth
+                margin="normal"
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                inputProps={{
+                  min: new Date().toISOString().slice(0, 16), // Định dạng YYYY-MM-DDTHH:mm
+                }}
+              />
+            )}
             <Button variant="contained" color="primary" onClick={handleAddEvent}>
               Add Order
             </Button>
@@ -158,7 +203,10 @@ export default function AppView() {
                   Title: {selectedEvent.title}
                 </Typography>
                 <Typography variant="subtitle1" gutterBottom>
-                  Date & Time: {selectedEvent.startStr}
+                  Date & Time: {selectedEvent.extendedProps.isTime} - {JSON.stringify(selectedEvent)} - {JSON.stringify(selectedEvent.endStr)}
+                  -
+                  { selectedEvent.extendedProps.isTime === 'dateRange' ?  `${selectedEvent.startStr}  -  ${selectedEvent.endStr}` : selectedEvent.startStr }
+                  
                 </Typography>
                 <Button
                   variant="contained"
@@ -177,5 +225,6 @@ export default function AppView() {
         </Modal>
       </div>
     </Container>
+    </LocalizationProvider>
   );
 }
