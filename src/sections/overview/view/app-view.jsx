@@ -175,7 +175,11 @@ export default function AppView() {
                 //     </>
                 //   )}
                 // />
-                <DateTimeRangePicker  value={dateRange} onChange={(newValue) => setDateRange(newValue)} localeText={{ start: 'Check-in', end: 'Check-out' }} />
+                <DateTimeRangePicker
+                  value={dateRange}
+                  onChange={(newValue) => setDateRange(newValue)}
+                  localeText={{ start: 'Check-in', end: 'Check-out' }}
+                />
               ) : (
                 <TextField
                   label="Date & Time"
@@ -224,7 +228,7 @@ export default function AppView() {
                     Title: {selectedEvent.title}
                   </Typography>
                   <Typography variant="subtitle1" gutterBottom>
-                    Date & Time: {selectedEvent.extendedProps.isTime} ----- 
+                    Date & Time: {selectedEvent.extendedProps.isTime} -----
                     {selectedEvent.extendedProps.isTime === 'dateRange'
                       ? `${selectedEvent.startStr}  -  ${selectedEvent.endStr}`
                       : selectedEvent.startStr}
