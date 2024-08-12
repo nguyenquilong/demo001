@@ -1,14 +1,8 @@
-import { useState } from 'react';
-
 import Box from '@mui/material/Box';
-import Link from '@mui/material/Link';
 import Card from '@mui/material/Card';
 import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button';
-import Divider from '@mui/material/Divider';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
 import LoadingButton from '@mui/lab/LoadingButton';
 import { alpha, useTheme } from '@mui/material/styles';
 import InputAdornment from '@mui/material/InputAdornment';
@@ -18,7 +12,6 @@ import { useRouter } from 'src/routes/hooks';
 import { bgGradient } from 'src/theme/css';
 
 import Logo from 'src/components/logo';
-import Iconify from 'src/components/iconify';
 
 // ----------------------------------------------------------------------
 
@@ -27,8 +20,6 @@ export default function LoginView() {
 
   const router = useRouter();
 
-  const [showPassword, setShowPassword] = useState(false);
-
   const handleClick = () => {
     router.push('/dashboard');
   };
@@ -36,9 +27,16 @@ export default function LoginView() {
   const renderForm = (
     <>
       <Stack spacing={3}>
-        <TextField name="email" label="Email address" />
-
+        <Box sx={{ height: '10px' }} />
         <TextField
+          name="name"
+          label="Organization name"
+          InputProps={{
+            endAdornment: <InputAdornment position="end">.localhost:3030</InputAdornment>,
+          }}
+        />
+
+        {/* <TextField
           name="password"
           label="Password"
           type={showPassword ? 'text' : 'password'}
@@ -51,15 +49,15 @@ export default function LoginView() {
               </InputAdornment>
             ),
           }}
-        />
+        /> */}
       </Stack>
 
-      <Stack direction="row" alignItems="center" justifyContent="flex-end" sx={{ my: 3 }}>
+      {/* <Stack direction="row" alignItems="center" justifyContent="flex-end" sx={{ my: 3 }}>
         <Link variant="subtitle2" underline="hover">
           Forgot password?
         </Link>
-      </Stack>
-
+      </Stack> */}
+      <Box sx={{ height: '30px' }} />
       <LoadingButton
         fullWidth
         size="large"
@@ -96,19 +94,19 @@ export default function LoginView() {
           sx={{
             p: 5,
             width: 1,
-            maxWidth: 420,
+            maxWidth: 620,
           }}
         >
-          <Typography variant="h4">Sign in to Minimal</Typography>
+          <Typography variant="h4">Sign in to system</Typography>
 
-          <Typography variant="body2" sx={{ mt: 2, mb: 5 }}>
+          {/* <Typography variant="body2" sx={{ mt: 2, mb: 5 }}>
             Don’t have an account?
             <Link variant="subtitle2" sx={{ ml: 0.5 }}>
               Get started
             </Link>
-          </Typography>
+          </Typography> */}
 
-          <Stack direction="row" spacing={2}>
+          {/* <Stack direction="row" spacing={2}>
             <Button
               fullWidth
               size="large"
@@ -138,13 +136,13 @@ export default function LoginView() {
             >
               <Iconify icon="eva:twitter-fill" color="#1C9CEA" />
             </Button>
-          </Stack>
+          </Stack> */}
 
-          <Divider sx={{ my: 3 }}>
+          {/* <Divider sx={{ my: 3 }}>
             <Typography variant="body2" sx={{ color: 'text.secondary' }}>
               OR
             </Typography>
-          </Divider>
+          </Divider> */}
 
           {renderForm}
         </Card>
