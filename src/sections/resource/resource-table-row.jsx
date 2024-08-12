@@ -12,10 +12,13 @@ import IconButton from '@mui/material/IconButton';
 
 import Iconify from 'src/components/iconify';
 
+import EditResource from './edit-resource';
+
 // ----------------------------------------------------------------------
 
 export default function ResourceTableRow({
   selected,
+  id,
   name,
   company,
   type,
@@ -70,16 +73,15 @@ export default function ResourceTableRow({
           sx: { width: 140 },
         }}
       >
-        <MenuItem onClick={handleCloseMenu}>
-          <Iconify icon="eva:edit-fill" sx={{ mr: 2 }} />
-          Edit
-        </MenuItem>
+
+        <EditResource name={name} type={type} code={code} id={id} company={company}/>
 
         <MenuItem onClick={handleCloseMenu} sx={{ color: 'error.main' }}>
           <Iconify icon="eva:trash-2-outline" sx={{ mr: 2 }} />
           Delete
         </MenuItem>
       </Popover>
+
     </>
   );
 }
@@ -91,4 +93,5 @@ ResourceTableRow.propTypes = {
   type: PropTypes.any,
   code: PropTypes.any,
   selected: PropTypes.any,
+  id: PropTypes.any,
 };

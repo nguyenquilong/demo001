@@ -142,6 +142,7 @@ export default function ResourcePage() {
                   .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                   .map((row) => (
                     <ResourceTableRow
+                      id={row.id}
                       key={row.id}
                       name={row.name}
                       type={row.type}

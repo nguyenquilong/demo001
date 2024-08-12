@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 
 import { Dialog, Button, TextField, DialogTitle, DialogContent, DialogActions } from '@mui/material';
 
-const FormDialog = ({ open, onClose }) => {
-  const [formValues, setFormValues] = useState({ name: '', company: 'FCI', code: '' });
+const FormDialog = ({ open, onClose, defaultValues }) => {
+  const [formValues, setFormValues] = useState(defaultValues || { name: '', company: 'FCI', code: '' });
 
   const handleChange = (e) => {
     setFormValues({
@@ -21,7 +21,7 @@ const FormDialog = ({ open, onClose }) => {
 
   return (
     <Dialog open={open} onClose={onClose}>
-      <DialogTitle>Add New Resouce</DialogTitle>
+      <DialogTitle>{defaultValues ? 'Update Resource' : 'Add New Resource'}</DialogTitle>
       <DialogContent>
         <TextField
           margin="dense"
@@ -59,7 +59,7 @@ const FormDialog = ({ open, onClose }) => {
           Cancel
         </Button>
         <Button onClick={handleSubmit}  variant="contained" color="inherit">
-          Submit
+          {defaultValues ? 'Update' : 'Create'}
         </Button>
       </DialogActions>
     </Dialog>
@@ -69,7 +69,8 @@ const FormDialog = ({ open, onClose }) => {
 
 FormDialog.propTypes = {
   open: PropTypes.any,
-  onClose: PropTypes.any
+  onClose: PropTypes.any,
+  defaultValues: PropTypes.any
 }
 
 export default FormDialog;
