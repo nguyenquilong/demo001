@@ -5,11 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3588f64a-8cbb-4470-b414-c896ae8e47e6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/sections/resource/edit-resource.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sections/resource/add-child-resource.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sections/resource/edit-resource.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/resource/edit-resource.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sections/resource/form-dialog.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/resource/form-dialog.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sections/resource/resource-table-row.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/resource/resource-table-row.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sections/resource/view/resource-view.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/resource/view/resource-view.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +32,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "D:/FCI/Hackakthon/ds-team-hackathon/public/assets/icons",
+    "last_opened_file_path": "D:/FCI/Hackakthon/ds-team-hackathon/src/sections/resource",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -44,11 +44,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\FCI\Hackakthon\ds-team-hackathon\src\sections\resource" />
       <recent name="D:\FCI\Hackakthon\ds-team-hackathon\public\assets\icons" />
       <recent name="D:\FCI\Hackakthon\ds-team-hackathon\src\_mock" />
       <recent name="D:\FCI\Hackakthon\ds-team-hackathon\dist\assets\icons" />
       <recent name="D:\FCI\Hackakthon\ds-team-hackathon\dist\assets\icons\navbar" />
-      <recent name="D:\FCI\Hackakthon\ds-team-hackathon\src\pages" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -66,7 +66,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1723450576981</updated>
-      <workItem from="1723450579253" duration="5819000" />
+      <workItem from="1723450579253" duration="7454000" />
     </task>
     <servers />
   </component>

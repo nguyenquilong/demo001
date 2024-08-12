@@ -13,6 +13,7 @@ import IconButton from '@mui/material/IconButton';
 import Iconify from 'src/components/iconify';
 
 import EditResource from './edit-resource';
+import AddChildResource from './add-child-resource';
 
 // ----------------------------------------------------------------------
 
@@ -75,6 +76,8 @@ export default function ResourceTableRow({
       >
 
         <EditResource name={name} type={type} code={code} id={id} company={company}/>
+
+        <AddChildResource parentId={id} name={name}/>
 
         <MenuItem onClick={handleCloseMenu} sx={{ color: 'error.main' }}>
           <Iconify icon="eva:trash-2-outline" sx={{ mr: 2 }} />
