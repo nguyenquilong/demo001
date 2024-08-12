@@ -28,7 +28,7 @@ export default function AppView() {
 
   const handleDateClick = (info) => {
     const newEvent = {
-      title: 'New Task',
+      title: 'New Task 111',
       start: info.dateStr,
     };
     setEvents([...events, newEvent]);

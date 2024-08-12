@@ -45,15 +45,17 @@ export default function LoginView() {
       const response = await axios.post('https://jsonplaceholder.typicode.com/users');
 
       // longga 
+      console.log(response)
 
       localStorage.setItem('accessToken', response.data.accessToken)
+      localStorage.setItem('role', response.data.role)
 
 
     } catch (error) {
       console.log(error);
     }
 
-    // router.push('/dashboard');
+    router.push('/');
   };
 
   
