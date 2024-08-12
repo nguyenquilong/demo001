@@ -1,4 +1,89 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PropertiesComponent">{}</component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3588f64a-8cbb-4470-b414-c896ae8e47e6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/public/assets/icons/ic_flag_vi.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sections/resource/form-dialog.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/_mock/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/_mock/resource.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/dashboard/common/language-popover.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/dashboard/common/language-popover.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/dashboard/config-navigation.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/dashboard/config-navigation.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/dashboard/nav.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/dashboard/nav.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/user.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/resource.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/sections.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/sections.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sections/user/table-empty-rows.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/resource/table-empty-rows.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sections/user/table-no-data.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/resource/table-no-data.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sections/user/user-table-head.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/resource/resource-table-head.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sections/user/user-table-row.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/resource/resource-table-row.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sections/user/user-table-toolbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/resource/resource-table-toolbar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sections/user/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/resource/utils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sections/user/view/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/resource/view/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sections/user/view/user-view.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/resource/view/resource-view.jsx" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 4
+}]]></component>
+  <component name="ProjectId" id="2kYBLibNyCvVKMvxssvOUCJrcOr" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "D:/FCI/Hackakthon/ds-team-hackathon/public/assets/icons",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "yarn",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2023.1.2\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\FCI\Hackakthon\ds-team-hackathon\public\assets\icons" />
+      <recent name="D:\FCI\Hackakthon\ds-team-hackathon\src\_mock" />
+      <recent name="D:\FCI\Hackakthon\ds-team-hackathon\dist\assets\icons" />
+      <recent name="D:\FCI\Hackakthon\ds-team-hackathon\dist\assets\icons\navbar" />
+      <recent name="D:\FCI\Hackakthon\ds-team-hackathon\src\pages" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-WS-241.14494.235" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3588f64a-8cbb-4470-b414-c896ae8e47e6" name="Changes" comment="" />
+      <created>1723450576981</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1723450576981</updated>
+      <workItem from="1723450579253" duration="5171000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
 </project>

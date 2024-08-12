@@ -10,21 +10,21 @@ import Typography from '@mui/material/Typography';
 import TableContainer from '@mui/material/TableContainer';
 import TablePagination from '@mui/material/TablePagination';
 
-import { users } from 'src/_mock/user';
-
 import Iconify from 'src/components/iconify';
 import Scrollbar from 'src/components/scrollbar';
 
+import FormDialog from '../form-dialog';
 import TableNoData from '../table-no-data';
-import UserTableRow from '../user-table-row';
-import UserTableHead from '../user-table-head';
 import TableEmptyRows from '../table-empty-rows';
-import UserTableToolbar from '../user-table-toolbar';
+import { resources } from '../../../_mock/resource';
+import ResourceTableRow from '../resource-table-row';
+import ResourceTableHead from '../resource-table-head';
+import ResourceTableToolbar from '../resource-table-toolbar';
 import { emptyRows, applyFilter, getComparator } from '../utils';
 
 // ----------------------------------------------------------------------
 
-export default function UserPage() {
+export default function ResourcePage() {
   const [page, setPage] = useState(0);
 
   const [order, setOrder] = useState('asc');
@@ -37,6 +37,8 @@ export default function UserPage() {
 
   const [rowsPerPage, setRowsPerPage] = useState(5);
 
+  const [open, setOpen] = useState(false);
+
   const handleSort = (event, id) => {
     const isAsc = orderBy === id && order === 'asc';
     if (id !== '') {
@@ -47,7 +49,7 @@ export default function UserPage() {
 
   const handleSelectAllClick = (event) => {
     if (event.target.checked) {
-      const newSelecteds = users.map((n) => n.name);
+      const newSelecteds = resources.map((n) => n.name);
       setSelected(newSelecteds);
       return;
     }
@@ -87,25 +89,31 @@ export default function UserPage() {
   };
 
   const dataFiltered = applyFilter({
-    inputData: users,
+    inputData: resources,
     comparator: getComparator(order, orderBy),
     filterName,
   });
 
   const notFound = !dataFiltered.length && !!filterName;
 
+
+
   return (
     <Container>
       <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
-        <Typography variant="h4">Users</Typography>
+        <Typography variant="h4">Resources</Typography>
 
-        <Button variant="contained" color="inherit" startIcon={<Iconify icon="eva:plus-fill" />}>
-          New User
+        <Button variant="contained" color="inherit" startIcon={<Iconify icon="eva:plus-fill" />} onClick={() => {
+          setOpen(true)
+        }}>
+          New Resource
         </Button>
+
+        <FormDialog open={open} onClose={()=> setOpen(false)}/>
       </Stack>
 
       <Card>
-        <UserTableToolbar
+        <ResourceTableToolbar
           numSelected={selected.length}
           filterName={filterName}
           onFilterName={handleFilterByName}
@@ -114,19 +122,18 @@ export default function UserPage() {
         <Scrollbar>
           <TableContainer sx={{ overflow: 'unset' }}>
             <Table sx={{ minWidth: 800 }}>
-              <UserTableHead
+              <ResourceTableHead
                 order={order}
                 orderBy={orderBy}
-                rowCount={users.length}
+                rowCount={resources.length}
                 numSelected={selected.length}
                 onRequestSort={handleSort}
                 onSelectAllClick={handleSelectAllClick}
                 headLabel={[
                   { id: 'name', label: 'Name' },
                   { id: 'company', label: 'Company' },
-                  { id: 'role', label: 'Role' },
-                  { id: 'isVerified', label: 'Verified', align: 'center' },
-                  { id: 'status', label: 'Status' },
+                  { id: 'code', label: 'Code' },
+                  { id: 'type', label: 'Type' },
                   { id: '' },
                 ]}
               />
@@ -134,14 +141,12 @@ export default function UserPage() {
                 {dataFiltered
                   .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                   .map((row) => (
-                    <UserTableRow
+                    <ResourceTableRow
                       key={row.id}
                       name={row.name}
-                      role={row.role}
-                      status={row.status}
+                      type={row.type}
+                      code={row.code}
                       company={row.company}
-                      avatarUrl={row.avatarUrl}
-                      isVerified={row.isVerified}
                       selected={selected.indexOf(row.name) !== -1}
                       handleClick={(event) => handleClick(event, row.name)}
                     />
@@ -149,7 +154,7 @@ export default function UserPage() {
 
                 <TableEmptyRows
                   height={77}
-                  emptyRows={emptyRows(page, rowsPerPage, users.length)}
+                  emptyRows={emptyRows(page, rowsPerPage, resources.length)}
                 />
 
                 {notFound && <TableNoData query={filterName} />}
@@ -161,7 +166,7 @@ export default function UserPage() {
         <TablePagination
           page={page}
           component="div"
-          count={users.length}
+          count={resources.length}
           rowsPerPage={rowsPerPage}
           onPageChange={handleChangePage}
           rowsPerPageOptions={[5, 10, 25]}
