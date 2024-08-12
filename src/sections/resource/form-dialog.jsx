@@ -78,16 +78,6 @@ const FormDialog = ({ open, onClose, defaultValues, isCreateChildren }) => {
           onChange={handleChange}
         />
         <TextField
-          margin="dense"
-          label="Code"
-          type="text"
-          fullWidth
-          variant="outlined"
-          name="code"
-          value={formValues.code}
-          onChange={handleChange}
-        />
-        <TextField
           type="text"
           name="attributes"
           label="Attributes"

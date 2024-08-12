@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3588f64a-8cbb-4470-b414-c896ae8e47e6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/sections/resource/add-child-resource.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sections/resource/delete-dialog.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sections/resource/edit-resource.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/resource/edit-resource.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sections/resource/form-dialog.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/resource/form-dialog.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sections/resource/resource-table-row.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/sections/resource/resource-table-row.jsx" afterDir="false" />
     </list>
@@ -66,7 +65,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1723450576981</updated>
-      <workItem from="1723450579253" duration="7454000" />
+      <workItem from="1723450579253" duration="8111000" />
     </task>
     <servers />
   </component>
